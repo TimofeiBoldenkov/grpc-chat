@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "github.com/TimofeiBoldenkov/grpc-chat/grpcchat";
+
+service GrpcChat {
+    rpc GetMessages(Amount) returns (stream Message) {}
+
+    rpc SendMessages(stream Text) returns (Amount) {}
+}
+
+message Text {
+    string text = 1;
+}
+
+message Message {
+    string text = 1;
+    string username = 2;
+    string time = 3;
+}
+
+message Amount {
+    uint64 amount = 1;
+}
