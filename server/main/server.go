@@ -17,7 +17,7 @@ var (
 )
 
 func newServer() *grpcchatserver.GrpcChatServer {
-	return &grpcchatserver.GrpcChatServer{}
+	return &grpcchatserver.GrpcChatServer{Streams: make(map[uint64]pb.GrpcChat_GetMessagesServer)}
 }
 
 func main() {
